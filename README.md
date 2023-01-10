@@ -1,4 +1,4 @@
-#AQi Meter
+# AQi Meter (Air Quality Index Meter)
 
 ## Overview:
 AQI Meter is an android app, Which you can use to check the Air Quality Index of the current location, The app ask you for location access permission and demands internet connectivity for working.
