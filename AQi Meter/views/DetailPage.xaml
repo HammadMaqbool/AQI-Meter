@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AQi_Meter.views.DetailPage"
+             xmlns:model="clr-namespace:AQi_Meter.models"
+             xmlns:viewmodel="clr-namespace:AQi_Meter.viewmodels"
+             x:DataType="viewmodel:DetailViewModel"
+             Shell.BackgroundColor="{StaticResource Primary}"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Primary}">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="{Binding Root.city_name, StringFormat='Location : {0}'}"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   TextColor="White"
+                   Margin="20,0,0,12"
+                />
+        <Label Text="AQI Index"
+                   Margin="20,0,0,5"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   FontSize="16"
+                   TextColor="White"
+                />
+        
+        <Border
+            HorizontalOptions="Fill"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="2"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <Border.Shadow>
+                <Shadow
+                    Opacity="0.2"
+                    Offset="0,9"
+                    />
+            </Border.Shadow>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Root.data[0].aqi}"
+                   FontSize="80"
+                   Margin="0,5,60,0"
+                   TextColor="White"
+                   x:Name="lbl_AQI"
+                   />
+                <Image
+                
+                Margin="0,0,0,0"
+                WidthRequest="130"
+                HeightRequest="140"
+                Source="winds.png"
+                />
+            </HorizontalStackLayout>
+        </Border>
+        
+        
+        <Border 
+            Margin="20"
+            HeightRequest="90"
+            Grid.Row="3"
+            Grid.Column="0"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <VerticalStackLayout>
+                <Label Text="Co2" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="20"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                <Image
+                    Source="co2.png"
+                    HeightRequest="50"
+                    />
+                <Label Text="{Binding Root.data[0].co, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="18"
+                       Margin="0,3,0,0"
+                       />
+            </HorizontalStackLayout>
+               
+            </VerticalStackLayout>
+        </Border>
+
+        <Border 
+            Margin="20"
+            HeightRequest="90"
+            Grid.Row="3"
+            Grid.Column="1"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <VerticalStackLayout>
+                <Label Text="So2" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="20"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                    Source="so2.png"
+                    HeightRequest="45"
+                    Margin="0,0,5,0"
+                    />
+                    <Label Text="{Binding Root.data[0].so2, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="18"
+                       Margin="0,4,0,0"
+                       />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+        
+        <Border 
+            Margin="20"
+            HeightRequest="90"
+            Grid.Row="4"
+            Grid.Column="0"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <VerticalStackLayout>
+                <Label Text="O3" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="20"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                    Source="o3.png"
+                    HeightRequest="50"
+                    />
+                    <Label Text="{Binding Root.data[0].o3, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="18"
+                       Margin="0,3,0,0"
+                       />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+        
+        
+        <Border 
+            Margin="20,0,20,0"
+            HeightRequest="90"
+            Grid.Row="4"
+            Grid.Column="1"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <VerticalStackLayout>
+                <Label Text="Grass Pollen" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="18"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                    Source="grass.png"
+                    HeightRequest="50"
+                    />
+                    <Label Text="{Binding Root.data[0].pollen_level_grass, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="18"
+                       Margin="0,3,0,0"
+                       />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+        
+        <Border 
+            Margin="20"
+            HeightRequest="90"
+            Grid.Row="5"
+            Grid.Column="0"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <VerticalStackLayout>
+                <Label Text="Tree Pollen" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="18"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                    Source="tree.png"
+                    HeightRequest="50"
+                    />
+                    <Label Text="{Binding Root.data[0].pollen_level_tree, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="16"
+                       Margin="0,3,0,0"
+                       />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+        <Border 
+            Margin="20,0,20,0"
+            HeightRequest="90"
+            Grid.Row="5"
+            Grid.Column="1"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+
+            <VerticalStackLayout>
+                <Label Text="Weed Pollen" HorizontalOptions="Center"
+                       TextColor="White" FontAttributes="Bold"
+                       FontSize="18"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Image
+                    Source="weed.png"
+                    HeightRequest="50"
+                    />
+                    <Label Text="{Binding Root.data[0].pollen_level_weed, StringFormat='{0:000.00}'}"
+                       TextColor="White"
+                       FontSize="16"
+                       Margin="0,3,0,0"
+                       />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+        
+        
+        <Border
+            Margin="20,0,20,15"
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            Stroke="GreenYellow"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            Padding="1"
+            BackgroundColor="{StaticResource PrimaryDark}"
+            >
+            <StackLayout >
+                <Label
+                       TextColor="White"
+                       FontSize="16"
+                       Margin="8,5,0,0"
+                       Text="📢 Other Information"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       />
+                
+                <Label
+                       TextColor="White"
+                       FontSize="16"
+                       Margin="8,5,0,0"
+                       Text="{Binding Root.country_code, StringFormat='🗺️ Country Code :{0}'}"
+                       />
+
+                <Label Text="{Binding Root.timezone, StringFormat='⌚ Time Zone : {0}'}"
+                       TextColor="White"
+                       FontSize="16"
+                       Margin="8,5,0,0"
+                       
+                       />
+            </StackLayout>
+        </Border>
+    </Grid>
+
+</ContentPage>
