@@ -6,7 +6,7 @@ AQI Meter is an android app, Which you can use to check the Air Quality Index of
 ## Releases Details:
 Release | Details
 :------:|:------:
-![v0.1.0](https://img.shields.io/badge/version-v0.1.0--alpha-orange) | N/A
+![v0.1.0](https://img.shields.io/badge/version-v0.1.0--alpha-orange)| [Basic features of checking AQI for current location](https://github.com/HammadMaqbool/AQI-Meter/releases/tag/v0.1.0-alpha) 
 
 ## Features
 It checks and tell the mentioned values for the current location:
