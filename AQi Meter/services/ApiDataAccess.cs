@@ -11,8 +11,8 @@ public class ApiDataAccess
         Get Your own Rapid API Key & ApiHost Values and Assign to the relevant variables 
         declare below.
      */
-    string RapidAPIKey = "";
-    string RapidAPIHost = "";
+    string RapidAPIKey = "7c2cef3882mshef8b1144463528fp190447jsn36be843492e2";
+    string RapidAPIHost = "air-quality.p.rapidapi.com";
 
     public  async Task<Root> getLocationAqi(double Longitude, double Latitude)
     {
